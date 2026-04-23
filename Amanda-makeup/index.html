@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda Makeup | Professional Makeup</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--primary:#2f6f5e;
+--secondary:#7fbf9b;
+--dark:#1f2f2a;
+--light:#f4fbf7;
+--white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:var(--light);color:var(--dark);scroll-behavior:smooth}
+
+/* HEADER */
+header{
+position:relative;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(47,111,94,0.7),rgba(127,191,155,0.7)), url('img/img8.jpg');
+background-size:contain;
+background-position:center;
+color:white;
+animation:fadeIn 1.5s ease;
+overflow:hidden;
+padding:0 20px;
+}
+
+header::after{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%),
+           radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15), transparent 40%);
+animation:moveBg 8s infinite alternate;
+}
+
+@keyframes moveBg{
+0%{transform:translate(0,0)}
+100%{transform:translate(-20px,20px)}
+}
+
+header h1{
+font-family:'Great Vibes',cursive;
+font-size:3.8em;
+letter-spacing:2px;
+z-index:2;
+}
+
+header p{
+margin-top:10px;
+font-size:1.2em;
+z-index:2;
+padding:0 10px;
+text-align:center;
+}
+
+.btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+background:white;
+color:var(--primary);
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+z-index:2;
+}
+.btn:hover{
+transform:scale(1.1);
+background:var(--primary);
+color:white;
+box-shadow:0 0 15px rgba(47,111,94,0.5);
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:var(--dark);
+font-weight:600;
+}
+
+nav a:hover{color:var(--primary)}
+
+section{padding:80px 20px;max-width:1100px;margin:auto}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+color:var(--primary);
+font-family:'Great Vibes',cursive;
+font-size:2.3em;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:var(--white);
+padding:20px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+opacity:0;
+transform:translateY(40px) scale(0.95);
+transition:0.6s ease;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+.card:hover{transform:translateY(-10px) scale(1.03)}
+
+.card img{
+width:100%;
+border-radius:10px;
+transition:0.3s;
+}
+.card img:hover{transform:scale(1.05)}
+
+.divider{
+width:100px;
+height:3px;
+background:linear-gradient(to right, transparent, #2f6f5e, transparent);
+margin:40px auto;
+border-radius:10px;
+}
+
+/* FLOAT ICON */
+.floating-icons i{
+position:fixed;
+font-size:20px;
+color:rgba(47,111,94,0.2);
+animation:float 6s infinite ease-in-out;
+}
+.floating-icons i:nth-child(1){left:10%;top:70%;}
+.floating-icons i:nth-child(2){left:80%;top:60%;animation-delay:2s;}
+.floating-icons i:nth-child(3){left:50%;top:80%;animation-delay:4s;}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+}
+
+/* MAKEUP DECOR */
+.makeup-decor i{
+position:fixed;
+font-size:30px;
+color:rgba(47,111,94,0.08);
+z-index:0;
+animation:floatMakeup 10s infinite ease-in-out;
+}
+
+.makeup-decor i:nth-child(1){top:15%;left:5%;}
+.makeup-decor i:nth-child(2){top:35%;left:92%;}
+.makeup-decor i:nth-child(3){top:70%;left:8%;}
+.makeup-decor i:nth-child(4){top:60%;left:85%;}
+.makeup-decor i:nth-child(5){top:85%;left:50%;}
+
+@keyframes floatMakeup{
+0%{transform:translateY(0) rotate(0deg)}
+50%{transform:translateY(-25px) rotate(8deg)}
+100%{transform:translateY(0) rotate(0deg)}
+}
+
+section, header, nav, footer{
+position:relative;
+z-index:2;
+}
+
+footer{
+background:var(--primary);
+color:white;
+text-align:center;
+padding:20px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* CERTIFICATE FIX */
+#certificate .grid{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+#certificate .card{
+width:700px;
+max-width:100%;
+text-align:center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px){
+
+header h1{
+font-size:2.5em;
+}
+
+header p{
+font-size:1em;
+}
+
+nav a{
+margin:0 8px;
+font-size:13px;
+}
+
+#certificate .card{
+width:100%;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+h2{
+font-size:2em;
+}
+}
+
+/* MUSIC BUTTON FIX */
+.music-box{
+position:fixed;
+bottom:20px;
+right:20px;
+background:white;
+padding:10px 15px;
+border-radius:30px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+display:flex;
+gap:10px;
+align-items:center;
+z-index:999;
+}
+
+.music-box button{
+border:none;
+background:#2f6f5e;
+color:white;
+padding:10px;
+border-radius:50%;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#about">About</a>
+<a href="#portofolio">Portofolio</a>
+<a href="#certificate">Certificate</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<header>
+<h1>Amanda Makeup</h1>
+<p id="typing"></p>
+<button class="btn" onclick="scrollToSection('contact')">Book Now</button>
+</header>
+
+<section id="about">
+<h2>About</h2>
+<div class="divider"></div>
+<p style="text-align:center">
+Amanda Makeup menghadirkan layanan tata rias profesional dengan sentuhan modern dan elegan untuk menyempurnakan setiap momen istimewa Anda. Dengan mengutamakan kualitas, detail, dan kepuasan client, kami siap memberikan hasil riasan yang menonjolkan kecantikan alami serta meningkatkan rasa percaya diri. Layanan kami mencakup berbagai kebutuhan seperti Wisuda, Engagement hingga acara spesial lainnya, dengan hasil yang tahan lama, flawless, dan sesuai dengan karakter serta keinginan setiap client.
+</p>
+</section>
+
+<section id="portofolio">
+<h2>Portofolio</h2>
+<div class="divider"></div>
+<div class="grid">
+<div class="card"><img src="img/img3.jpg"></div>
+<div class="card"><img src="img/img2.jpg"></div>
+<div class="card"><img src="img/img4.jpg"></div>
+<div class="card"><img src="img/img9.jpg"></div>
+<div class="card"><img src="img/img10.jpg"></div>
+<div class="card"><img src="img/img11.jpg"></div>
+</div>
+</section>
+
+<section id="certificate">
+<h2>Certificate MUA</h2>
+<div class="divider"></div>
+<div class="grid">
+<div class="card">
+<img src="img/img12.jpg">
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="divider"></div>
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+
+<div class="card" style="max-width:300px;text-align:center">
+<i class="fab fa-whatsapp" style="font-size:2em;color:#25D366;"></i>
+<h3>WhatsApp</h3>
+<a href="https://wa.me/085290038830" class="btn">Chat</a>
+</div>
+
+<div class="card" style="max-width:300px;text-align:center">
+<i class="fab fa-instagram" style="font-size:2em;color:#E1306C;"></i>
+<h3>Instagram</h3>
+<a href="https://instagram.com/amandaa_makeupppp" class="btn">Visit</a>
+</div>
+
+<div class="card" style="max-width:300px;text-align:center">
+  <i class="fab fa-tiktok" style="font-size:2em;color:#000;"></i>
+<h3>Tiktok</h3>
+<a href="https://tiktok.com/@amandaa_makeupppp" class="btn">Visit</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Amanda Makeup</p>
+</footer>
+
+<!-- MUSIC -->
+<audio id="bg-music" loop>
+<source src="audio/musik1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-box">
+<button onclick="toggleMusic()" id="music-btn">▶️</button>
+</div>
+
+<script>
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(c=>{
+if(c.getBoundingClientRect().top < window.innerHeight*0.85){
+c.classList.add('show');
+}
+});
+});
+
+const text = "Professional Makeup Artist";
+let i=0;
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,50);
+}}
+typing();
+
+/* MUSIC */
+const music=document.getElementById("bg-music");
+const btn=document.getElementById("music-btn");
+
+function toggleMusic(){
+if(music.paused){
+music.play();
+btn.innerHTML="⏸️";
+}else{
+music.pause();
+btn.innerHTML="▶️";
+}
+}
+
+</script>
+
+</body>
+</html>
